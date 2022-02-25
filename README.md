@@ -108,7 +108,9 @@ roslaunch mubot_navigation gazebo_house.launch
 to load the laboratory world in gazebo and 
 ```
 roslaunch mubot_navigation mubot_bringup.launch
-```ttps://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/ros-mobile-control.gif
+```
+![ros_mobile video](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/ros-mobile-control.gif
+
 to launch the rosserial node. 
 Now the robot can be controlled using the ROS-Mobile App which enables ROS to control the robot's joint velocities. Linear (forward and backward movement) and angular (rotation around the z-axis).
 
