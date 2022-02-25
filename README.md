@@ -27,17 +27,17 @@ roslaunch mubot_navigation gazebo_house.launch
 ```
 This launches the laboratory layout in the gazebo and the current location of the robot in the laboratory as shown in the figure below. 
 
-![laboratory_world](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/laboratory_world.png)
+![laboratory_world](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/laboratory_world.png
 
 On a new terminal, run the following command to view the robot's urdf and the lidar data in Rviz. Ensure that `roscore` is running.
 ```
 roslaunch mubot_navigation rviz_display.launch
 ```
-![laboratory_world](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/rviz_view.png)
+![laboratory_world](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/rviz_view.png)
 
 The red dotted lines are the lidar scan showing the location of obstacles (objects) within the robot environment. Use the `rqt_robot_steering` tool to move the robot around the laboratory, and try to introduce obstacles on the way to see the robot's response to it. Once done, press Ctrl+C in all the open terminal to close them.
 
-![obstacles](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/obst_intr.gif)
+![obstacles](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/obst_intr.gif)
 
 - **Map generation:**
 
@@ -62,8 +62,9 @@ rosrun map_server map_saver -f laboratory_map
 Ensure that the map server is installed and running properly. Else, run `sudo apt-get install ros-noetic-map-server`. You can view the saved map by running `rosrun map_server map_server laboratory_map.yaml` from a terminal.
 If everything went well, you would be able to obtain something similar to the following pictures.
 
-![mapping](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/lab_map.png)
-![mapped area](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/mapped_lab.png)
+![mapping](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/lab_map.png)
+
+![mapped area](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/mapped_lab.png)
 
 - **Autonomous navigation:**
 
@@ -76,7 +77,7 @@ On a new terminal window,
 roslaunch mubot_navigation mubot_navigation.launch
 ```
 Set a goal location for the robot by clicking on the "2D Nav Goal" button on the Rviz display window and then click on any place in the map that you would like the robot to go. Although not compulsory, drag while you click on the goal location to position the direction you would like the robot to face when it reaches the goal location. You would obtain something similar to the video below.
-![send to goal](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/auto-nav.gif)
+![send to goal](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/auto-nav.gif)
 
 - **Send Mubot to a goal location:**
 
@@ -85,7 +86,7 @@ We can send mubot to a goal location within the laboratory without need to speci
 ```
 rosrun mubot_navigation send_goals
 ```
-![send to goal](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/send_to_goal.gif)
+![send to goal](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/send_to_goal.gif)
 
 
 ### Real-time control and monitoring with ROS-Mobile device:
@@ -95,7 +96,7 @@ rosrun mubot_navigation send_goals
 First, you need to be sure that Arduino has been set up to communicate with ROS. [This tutorial](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup) could be helpful. I have included a ros_lib which I have modified to make your setup much more easier. Make sure that the rosserial node (rosserial_python serial_node.py) is running properly. [This tutorial](http://wiki.ros.org/rosserial_python#serial_node.py) could be helpful for the setup.
 The whole communication structure is described in the following figure.
 
-![communication](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/communication.jpg)
+![communication](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/communication.jpg)
 
 - **Control and monitoring from ROS-Mobile device:**
 
@@ -111,9 +112,9 @@ roslaunch mubot_navigation mubot_bringup.launch
 to launch the rosserial node. 
 Now the robot can be controlled using the ROS-Mobile App which enables ROS to control the robot's joint velocities. Linear (forward and backward movement) and angular (rotation around the z-axis).
 
-![watch the testing video here](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/ros_mobile_app.png)
+![watch the testing video here](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/ros_mobile_app.png)
 
-![watch the testing video here](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/media/ros-mobile-control.gif)
+![watch the testing video here](hhttps://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/ros-mobile-control.gif)
 
 ### Real-time autonomous navigation:
 In progress . . .
