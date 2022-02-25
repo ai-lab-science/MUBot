@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<robot name="mubot_navigation" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+
+<material name="white">
+  <color rgba="01.00 01.00 01.00 1.000"/>
+</material>
+
+<material name="yellow">
+  <color rgba="01.00 01.00 00.50 1.000"/>
+</material>
+
+<material name="black">
+  <color rgba="00.00 00.00 00.00 1.000"/>
+</material>
+
+<material name="grey">
+  <color rgba="00.40 00.40 00.40 1.000"/>
+</material>
+
+</robot>

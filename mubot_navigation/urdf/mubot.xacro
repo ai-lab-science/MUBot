@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+<robot name="mubot_navigation" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mubot_navigation)/urdf/mubot_materials.xacro" />
+<!--<xacro:include filename="$(find mubot_navigation)/gazebo/mubot.trans" />-->
+
+<xacro:include filename="$(find mubot_navigation)/gazebo/mubot_gazebo_materials.gazebo" />
+<xacro:include filename="$(find mubot_navigation)/gazebo/mubot_gazebo_physics.gazebo" />
+<xacro:include filename="$(find mubot_navigation)/gazebo/mubot_gazebo_plugins.gazebo" />
+
+<!-- Define intertial property macros  -->
+  <xacro:macro name="footprint_inertia" params="m w h d">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${m}"/>
+      <inertia ixx="${(m/12) * (h*h + d*d)}" ixy="0.0" ixz="0.0" iyy="${(m/12) * (w*w + d*d)}" iyz="0.0" izz="${(m/12) * (w*w + h*h)}"/>
+    </inertial>
+  </xacro:macro>
+
+
+<!-- ****************** ROBOT BASE FOOTPRINT ***************************  -->
+  <!-- Define the center of the main robot chassis projected on the ground -->   
+  <link name="base_footprint">
+    <xacro:footprint_inertia m="0" w="0" d="0" h="0"/>
+  </link>
+ 
+  <!-- The base footprint of the robot is located underneath the chassis -->
+  <joint name="base_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0.0 0.0 -0.13" rpy="0 0 0"/>
+  </joint>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0136084000974873 -0.00499482087104461 0.123769128463892" rpy="0 0 0" />
+    <mass  value="2.87937344341329" />
+      <inertia ixx="0.00923445713103192" ixy="3.52264289819142e-06" ixz="-0.000441310208157926" iyy="0.007778859984883" iyz="-1.92193662635582e-06" izz="0.0139740820591221" />
+    </inertial>
+    <visual>
+      <origin  xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+      <mesh filename="package://mubot_navigation/meshes/base_link.STL" />
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/base_link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="rightwheel_link">
+  <inertial>
+      <origin xyz="0.000348357029544388 0.0317321533300312 0.000261322314043799" rpy="0 0 0" />
+      <mass value="1.20281527208295" />
+      <inertia ixx="0.00224144277374002" ixy="1.36272157740343e-07" ixz="-1.17061213813287e-07" iyy="0.00378443700729495" iyz="-1.52384434101423e-07" izz="0.00224154314643243" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+      <mesh filename="package://mubot_navigation/meshes/rightwheel_link.STL" />
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/rightwheel_link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="leftwheel_link">
+<inertial>
+  <origin xyz="-0.000352673824352112 -0.0317321533300245 0.000255466525181297" rpy="0 0 0" />
+      <mass value="1.20281527208295" />
+      <inertia ixx="0.00224143889126708" ixy="1.33707553267732e-07" ixz="1.15319382243967e-07" iyy="0.00378443700729495" iyz="1.54639604851796e-07" izz="0.00224154702890537" />
+ </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/leftwheel_link.STL" />
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/leftwheel_link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="casterwheel_link">
+ <inertial>
+      <origin xyz="-6.24439615906636e-05 0.00990492035647383 -5.80874061309467e-06" rpy="0 0 0" />
+      <mass value="0.100245438847884" />
+      <inertia ixx="4.77243077216562e-05" ixy="-2.46163109776874e-07" ixz="1.44362357471191e-10" iyy="8.67693815516973e-05" iyz="-2.28988939327255e-08" izz="4.77227692553699e-05" />
+    </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/casterwheel_link.STL" />
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/casterwheel_link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="lidar_link">
+  <inertial>
+      <origin xyz="-0.00275922326082423 -3.31898697414346E-09 -0.0238638841119722" rpy="0 0 0" />
+      <mass value="0.184636979847826" />
+      <inertia ixx="0.000103449890522048" ixy="-5.13903986856189e-11" ixz="4.77430413979597e-06" iyy="8.60324507903863e-05" iyz="-2.25997898356887e-11" izz="0.000127438215274729" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+   <geometry>
+      <mesh filename="package://mubot_navigation/meshes/lidar_Link.STL" />
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/lidar_Link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="camera_link">
+  <inertial>
+      <origin xyz="0.0162971268748396 0.0029869799766481 0.00522728663273986" rpy="0 0 0" />
+      <mass value="0.114396036760118" />
+      <inertia ixx="8.33969676064508e-05" ixy="1.79636899763931e-07" ixz="3.17036861263759e-06" iyy="1.7277322876418e-05" iyz="4.50856779192012e-08" izz="7.67394181590166e-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/camera_link.STL" />
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/camera_link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link">
+  <inertial>
+      <origin xyz="0.00753837730862272 -0.000163080304747665 3.09106131575754e-05" rpy="0 0 0" />
+      <mass value="0.0352181888426215" />
+      <inertia ixx="1.49798975786619e-05" ixy="-9.01256775385173e-09" ixz="-1.82165438541265e-09" iyy="5.34424428177353e-06" iyz="-7.62428059050258e-10" izz="1.09603367236951e-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+   <geometry>
+      <mesh filename="package://mubot_navigation/meshes/imu_Link.STL" />
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mubot_navigation/meshes/imu_Link.STL" />
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rightwheel_joint" type="continuous">
+  <origin xyz="0.11527 -0.21055 -0.0088694" rpy="0 0 0" />
+  <parent link="base_link"/>
+  <child link="rightwheel_link"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="leftwheel_joint" type="continuous">
+   <origin xyz="0.11596 0.20485 -0.0088636" rpy="0 0 0" />
+  <parent link="base_link"/>
+  <child link="leftwheel_link"/>
+  <axis xyz="0.0 1.0 0.0"/>   <!-- change the value to minus to reverse the direction of motion -->
+</joint>
+
+
+<joint name="casterwheel_joint" type="fixed">   
+  <origin xyz="-0.12387 -0.012159 -0.075297"  rpy="0 0 0" />
+  <parent link="base_link"/>
+  <child link="casterwheel_link"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0045887 -0.015258 0.46928" rpy="0 0 0" />
+  <parent link="base_link"/>
+  <child link="lidar_link"/>
+</joint>
+
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.089004 -0.0064195 0.21502" rpy="0 0 0" />
+  <parent link="base_link"/>
+  <child link="camera_link"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="0.074148 -0.0067385 0.21278" rpy="0 -0.092756 0" />
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+</joint>
+
+</robot>

@@ -1,0 +1,14 @@
+global_costmap:
+  global_frame: map # The global frame for the costmap to operate in.
+ #robot_base_frame: base_footprint
+  robot_base_frame: base_link # The name of the frame for the base link of the robot. default= base_link
+  update_frequency: 5.0
+  publish_frequency: 5.0
+  static_map: true
+ 
+  transform_tolerance: 0.5 # Specifies the delay in transform (tf) data that is tolerable in seconds. default: 0.2 
+  plugins:
+    - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+    - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+

@@ -1,0 +1,52 @@
+DWAPlannerROS:
+
+# Robot Configuration Parameters
+  max_vel_x: 0.5 # max. linear velocity of the robot
+  min_vel_x: 0.0 # -0.22 => if we want the robot to move backward
+
+  max_vel_y: 0.0 # This has to be 0 since the robot is not omnidirectional and does not require to move sideways
+  min_vel_y: 0.0
+
+# The velocity when robot is moving in a straight line
+  max_vel_trans: 0.5 # 0.22
+  min_vel_trans:  0.11
+  trans_stopped_vel: 0.1
+
+  max_vel_theta: 2.75 # Since the robot is not omnidirectional and can rotate on its base hence the rotational velocity should be defined
+  min_vel_theta: 1.37
+
+  acc_lim_x: 2.5 # The x acceleration limit of the robot in meters/sec^2. default: 2.5
+  acc_lim_y: 0.0
+  acc_lim_theta: 3.2 
+
+# Goal Tolerance Parametes
+  xy_goal_tolerance: 0.15 # The robot has to stop 0.15m before the goal
+  yaw_goal_tolerance: 0.3 # The robot has to stop 0.3m before the goal while rotating 
+  latch_xy_goal_tolerance: false
+
+# Forward Simulation Parameters
+  sim_time: 1.5 # The amount of time to forward-simulate trajectories in seconds. default: 1.7
+  vx_samples: 6 # The number of samples to use when exploring the x velocity space. default: 3
+  vy_samples: 1 #0
+  vth_samples: 20 # The number of samples to use when exploring the theta velocity space. default: 20
+  controller_frequency: 10.0 # The frequency at which this controller will be called in Hz. default: 20.0. For use with move_base, this means that you only need to set its "controller_frequency" parameter and can safely leave this one unset.
+
+# Trajectory Scoring Parameters
+  path_distance_bias: 64.0  # How much importance should the robot give to the local path. The path distance bias should always be greather than the goal distance bias. default: 32.0
+  goal_distance_bias: 24    # The weighting for how much the controller should attempt to reach its local goal, also controls speed. default: 24.0
+  occdist_scale: 0.5       # The weighting for how much the controller should attempt to avoid obstacles. default: 0.01
+  forward_point_distance: 0.325 # he distance from the center point of the robot to place an additional scoring point, in meters. default: 0.325
+  stop_time_buffer: 0.2    # The amount of time that the robot must stop before a collision in order for a trajectory to be considered valid in seconds. default: 0.2
+  scaling_speed: 0.25      #  The absolute value of the velocity at which to start scaling the robot's footprint, in m/s. default: 0.25
+  max_scaling_factor: 0.2  # The maximum factor to scale the robot's footprint by. default: 0.2
+
+# Oscillation Prevention Parameters
+  oscillation_reset_dist: 0.05  # How far the robot must travel in meters before oscillation flags are reset. default: 0.05
+  
+# Debugging
+  publish_traj_pc : true
+  publish_cost_grid_pc: true
+  #global_frame_id: odom
+
+  
+  
