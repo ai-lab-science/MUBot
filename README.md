@@ -112,7 +112,7 @@ roslaunch mubot_navigation mubot_bringup.launch
 to launch the rosserial node. 
 Now the robot can be controlled using the ROS-Mobile App which enables ROS to control the robot's joint velocities. Linear (forward and backward movement) and angular (rotation around the z-axis).
 
-![watch the testing video here](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/ros_mobile_app.png)
+![app here](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/ros_mobile_app.png)
 
 ![watch the testing video here](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/ros-mobile-control.gif)
 
