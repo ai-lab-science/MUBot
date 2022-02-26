@@ -27,13 +27,13 @@ roslaunch mubot_navigation gazebo_house.launch
 ```
 This launches the laboratory layout in the gazebo and the current location of the robot in the laboratory as shown in the figure below. 
 
-![laboratory_world](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/laboratory_world.png
+![laboratory_world_gazebo](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/laboratory_world.png
 
 On a new terminal, run the following command to view the robot's urdf and the lidar data in Rviz. Ensure that `roscore` is running.
 ```
 roslaunch mubot_navigation rviz_display.launch
 ```
-![laboratory_world](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/rviz_view.png)
+![laboratory_world_rviz](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/rviz_view.png)
 
 The red dotted lines are the lidar scan showing the location of obstacles (objects) within the robot environment. Use the `rqt_robot_steering` tool to move the robot around the laboratory, and try to introduce obstacles on the way to see the robot's response to it. Once done, press Ctrl+C in all the open terminal to close them.
 
@@ -77,7 +77,8 @@ On a new terminal window,
 roslaunch mubot_navigation mubot_navigation.launch
 ```
 Set a goal location for the robot by clicking on the "2D Nav Goal" button on the Rviz display window and then click on any place in the map that you would like the robot to go. Although not compulsory, drag while you click on the goal location to position the direction you would like the robot to face when it reaches the goal location. You would obtain something similar to the video below.
-![send to goal](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/auto-nav.gif)
+
+![send_to_a_goal](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/auto-nav.gif)
 
 - **Send Mubot to a goal location:**
 
