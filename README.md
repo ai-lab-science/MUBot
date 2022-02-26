@@ -27,7 +27,7 @@ roslaunch mubot_navigation gazebo_house.launch
 ```
 This launches the laboratory layout in the gazebo and the current location of the robot in the laboratory as shown in the figure below. 
 
-![laboratory_world_gazebo](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/laboratory_world.png
+![laboratory_world_gazebo](https://github.com/ai-lab-science/MUBot-Control-and-Monitoring-Using-ROS-Navigation-Stack-and-ROS-Mobile-App/blob/main/mubot_navigation/media/laboratory_world.png)
 
 On a new terminal, run the following command to view the robot's urdf and the lidar data in Rviz. Ensure that `roscore` is running.
 ```
